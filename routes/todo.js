@@ -2,7 +2,7 @@
 const router = require('express').Router();
 
 //require model
-const TodoList = require('../modules/app');
+const TodoList = require('../modals/app');
 
 
 //routes wil use here....
