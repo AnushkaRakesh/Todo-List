@@ -1,0 +1,41 @@
+<!-- bootstrap cdn link -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- css link -->
+<link rel="stylesheet" href="/app.css">
+
+<!-- includer header.ejs -->
+<%- include('header') -%>
+
+<!-- nav part -->
+<div class="container" id="form-container">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><h1>Todo App</h1></a>
+    </div>
+  </nav>
+</div>
+
+
+  <!-- add form -->
+  <div class="container mt-5" >
+      <form action="/add/todo" method="POST" class="form-content">
+          <input type="text" name="todo" class="form-control" placeholder="Enter Title">
+          <input type="text" name="description" class="form-control" placeholder="Enter Description">
+          <input type="submit" value="Add Todo" class="btn btn-md btn-primary">
+      </form>
+
+      <ul class="list-group my-5" id="list">
+        <% for(let i of value){%>
+          <li class="list-group-item" id="list-inside">
+            <div>
+              <p><%= i.todo %></p>
+              <p><%= i.description %></p>
+            </div>
+            <a href="/delete/todo/?id=<%= i.id %>" class="btn btn-outline-danger btn-sm ">Delete</a></li>
+        <%}%>
+      </ul> 
+  </div>
+
+
+<!-- includer footer part   -->
+<%- include("footer") -%>
